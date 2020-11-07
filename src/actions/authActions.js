@@ -8,9 +8,10 @@ import {  GET_ERRORS, SET_CURRENT_USER }  from "./types";
 //Login User
 export const loginUser = (userData) => dispatch => {
   axios
-    .post(`${process.env.REACT_APP_BASE_URL}/api/users/login`, userData)
+    .post(`${process.env.REACT_APP_BASE_URL}auth/login`, userData)
     .then(res => {
         //Save to local storage
+        console.log(res.userData)
         const {token} = res.data;
         //Set token to local storage
         localStorage.setItem("jwtToken" , token);

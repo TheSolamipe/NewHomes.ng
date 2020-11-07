@@ -14,7 +14,7 @@ function TextFieldGroup({
 }) {
   return (
     <div className="form-group">
-              <label for="formGroupExampleInput">{placeholder}</label>
+              <label htmlFor="formGroupExampleInput">{placeholder}</label>
               <input type={type} 
                   className={classnames("form-control form-control-lg",{
                     "is-invalid": error

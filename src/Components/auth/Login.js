@@ -42,7 +42,7 @@ function Login(props) {
               name="email"
               type="email" 
               placeholder="Email Address"
-              error={errors.email}  
+              error={errors.data}  
               value={email} 
               onChange={(e)=> setEmail(e.target.value)} 
             />
@@ -50,15 +50,15 @@ function Login(props) {
               name="password"
               type="password" 
               placeholder="Password"
-              error={errors.password}  
+              error={errors.data}  
               value={password} 
               onChange={(e)=> setPassword(e.target.value)} 
             />
             <div className="login__left--check">
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck"/>
-                        <label class="form-check-label" for="gridCheck">
+                <div className="form-group">
+                    <div className="form-check">
+                        <input className="form-check-input" type="checkbox" id="gridCheck"/>
+                        <label className="form-check-label" htmlFor="gridCheck">
                         Keep me logged in
                         </label>
                     </div>
