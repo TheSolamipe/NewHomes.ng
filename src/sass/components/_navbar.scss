@@ -1,0 +1,26 @@
+.navbar{
+    &-edit{
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+    
+    &-logo1{
+        width: 6rem;
+        height: 6rem;
+    }
+    &-logo2{
+        width: 2rem;
+        height: 2rem;
+    }
+    &-item{
+        padding-right: 2rem;
+    }
+    &-link {
+        color: black;
+        font-weight: 600;
+    }
+    &-bottom{
+        border-bottom: 3px solid rgb(66, 65, 65);
+    }
+}

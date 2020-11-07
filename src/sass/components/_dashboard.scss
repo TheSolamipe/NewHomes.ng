@@ -1,0 +1,39 @@
+.dashboard {
+  background-color: #f8f8f8;
+  position: relative;
+  &__header {
+    padding-left: 4rem;
+  }
+  &__row {
+    position: absolute;
+    // width: 100vw;
+    display: flex;
+    margin: 0 30px;
+    // padding: 20px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    // @media screen and (max-width: 450px) {
+    //   flex-direction: column;
+    // }
+  }
+  //   &__row::-webkit-scrollbar {
+  //     display: none;
+  //   }
+
+  &__arrow {
+    padding: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.877);
+    border-radius: 50%;
+    z-index: 100;
+    position: absolute;
+    top: 20rem;
+  }
+
+  &__arrow-b {
+    left: 2rem;
+  }
+  &__arrow-f {
+    right: 2rem;
+  }
+}
