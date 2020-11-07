@@ -27,7 +27,7 @@ function Login(props) {
   const Login =(e)=>{
     e.preventDefault();
 
-    const user = {email, password}
+    const user = {email, password, usertype:"Agent"}
     props.loginUser(user)
   }
 
@@ -42,7 +42,7 @@ function Login(props) {
               name="email"
               type="email" 
               placeholder="Email Address"
-              error={errors.data}  
+              error={errors.message}  
               value={email} 
               onChange={(e)=> setEmail(e.target.value)} 
             />
@@ -50,7 +50,7 @@ function Login(props) {
               name="password"
               type="password" 
               placeholder="Password"
-              error={errors.data}  
+              error={errors.message}  
               value={password} 
               onChange={(e)=> setPassword(e.target.value)} 
             />

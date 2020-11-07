@@ -91,4 +91,4 @@ Dashboard.propTypes = {
     property: state.property,
   });
   
-  export default connect(mapStateToProps, { getProperties })(Dashboard);
+  export default connect(mapStateToProps, { getProperties})(Dashboard);

@@ -1,6 +1,6 @@
 import axios from "axios";
 import  setAuthToken  from "./../utils/setAuthToken";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 import {  GET_ERRORS, SET_CURRENT_USER }  from "./types";
 
@@ -8,19 +8,20 @@ import {  GET_ERRORS, SET_CURRENT_USER }  from "./types";
 //Login User
 export const loginUser = (userData) => dispatch => {
   axios
-    .post(`${process.env.REACT_APP_BASE_URL}auth/login`, userData)
+    .post("https://staging.newhomes.ng/api/auth/login", userData)
     .then(res => {
         //Save to local storage
-        console.log(res.userData)
-        const {token} = res.data;
-        //Set token to local storage
+        console.log(res.data)
+        const {user} = res.data.data;
+        const {token} = res.data.data;
+        // Set token to local storage
         localStorage.setItem("jwtToken" , token);
         //Set Token to  Auth Header
         setAuthToken(token);
-        //Decode token to get user data
-        const decoded = jwt_decode(token);
+        // //Decode token to get user data
+        // const decoded = jwt_decode(token);
         //set Current User
-        dispatch(setCurrentUser(decoded));
+        dispatch(setCurrentUser(user));
     })
     .catch(err => 
       dispatch({
@@ -31,10 +32,10 @@ export const loginUser = (userData) => dispatch => {
 }
 
 //Set logged in user
-export const setCurrentUser = (decoded)=>{
+export const setCurrentUser = (user)=>{
   return {
     type: SET_CURRENT_USER,
-    payload: decoded
+    payload: user
   }
 }
 

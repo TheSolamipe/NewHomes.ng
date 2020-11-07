@@ -1,8 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import "./../../sass/main.scss";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import { logoutUser } from "./../../actions/authActions";
 
 function Navbar(props) {
+
+  const onLogoutClick =(e)=>{
+    e.preventDefault()
+    props.logoutUser()
+  }
+
   return (
     <nav className=" navbar navbar-expand-sm navbar-light navbar-bottom bg-light mb-4">
         <div className="navbar-edit">
@@ -21,11 +30,11 @@ function Navbar(props) {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link className="navbar-link" to="/profiles">
+                <a className="navbar-link" onClick={onLogoutClick} href="/">
                   {" "}
                   <img className="navbar-logo2" src="./../../nigflag.png" alt="brand-logo" />
-                  NGN
-                </Link>
+                  NGN logout
+                </a>
               </li>
             </ul>
             <ul className="navbar-nav ml-auto">
@@ -52,4 +61,11 @@ function Navbar(props) {
 }
 
 
-export default Navbar;
+Navbar.propTypes ={
+  logoutUser: PropTypes.func.isRequired,
+}
+// const mapStateToProps = (state)=>({
+//   auth: state.auth
+// })
+
+export default connect(null, {logoutUser})(Navbar);
