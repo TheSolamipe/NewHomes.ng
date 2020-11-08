@@ -3,7 +3,7 @@ import React from 'react'
 function Test() {
     return (
         <div>
-            <h1>How did you access me</h1>
+            <h1>This page is available to the general public.</h1>
         </div>
     )
 }

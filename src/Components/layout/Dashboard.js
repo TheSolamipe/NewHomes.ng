@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {connect} from "react-redux";
 import PropTypes from"prop-types";
 import {getProperties} from "../../actions/propertyActions";
@@ -10,7 +10,6 @@ import Loading from "./../common/Loading";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-import $ from 'jquery';
 
 import "./../../sass/main.scss";
 
@@ -48,33 +47,25 @@ function Dashboard(props) {
       }
     }
     
+    const navRef = useRef(null);
 
-    //jquery to handle scroll by click
-    var view = $(".dashboard__row");
-    var move = "100px";
-    var sliderLimit = 750;
-
-    $(".dashboard__arrow-b").on("click", function(){
-      
-    var currentPosition = parseInt(view.css("left"));
-    if (currentPosition >= sliderLimit) view.stop(false,true).animate({left:"-="+move},{ duration: 400})
-
-    });
-
-    $(".dashboard__arrow-f").on("click", function(){
-      
-    var currentPosition = parseInt(view.css("left"));
-    if (currentPosition < 0) view.stop(false,true).animate({left:"+="+move},{ duration: 400});
-    });
+    //This function handles the scrolling by incrementing or decrementing the scrollLeft property
+    function handleClick(direction) {
+      if(direction === "left"){
+        if(navRef){navRef.current.scrollLeft -= 400} ;
+      }else{
+        if(navRef){navRef.current.scrollLeft += 400};
+      }
+    }
 
 
     return (
         <div className="dashboard">
             <Navbar />
             <h4 className="dashboard__header">Featured Properties</h4>
-            <ArrowBackIosIcon className="dashboard__arrow-b dashboard__arrow"/>
-            <ArrowForwardIosIcon className="dashboard__arrow-f dashboard__arrow"/>
-            <div className="dashboard__row">
+            <ArrowBackIosIcon className="dashboard__arrow-b dashboard__arrow" onClick={() => handleClick("left")}/>
+            <ArrowForwardIosIcon className="dashboard__arrow-f dashboard__arrow" onClick={() => handleClick("right")}/>
+            <div className="dashboard__row" ref={navRef}>
             {propertyItems}
             </div>
         </div>

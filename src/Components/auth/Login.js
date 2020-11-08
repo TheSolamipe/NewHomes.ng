@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loginUser } from './../../actions/authActions';
 import { withRouter } from "react-router-dom";
 import TextFieldGroup from "./../common/TextFieldGroup";
+import Loading from "./../common/Loading";
 
 import "./../../sass/main.scss";
 
@@ -19,16 +20,15 @@ function Login(props) {
   }, [props.history, props.auth.isAuthenticated]);
 
   useEffect(()=>{
-    if(props.errors){
-      if(props.errors.message === "failed"){
-          console.log(props.errors)
-          setErrors(props.errors)
-      }else if(props.errors.message === "Validation Error"){
-          props.errors.data.map(data => (
+    if(props.errors.errors){
+      if(props.errors.errors.message === "failed"){
+          console.log(props.errors.errors)
+          setErrors(props.errors.errors)
+      }else if(props.errors.errors.message === "Validation Error"){
+          props.errors.errors.data.map(data => (
             setErrors(data)
           )) 
       }
-      // setErrors(props.errors)
     }
   }, [props.errors]);
 
@@ -37,6 +37,15 @@ function Login(props) {
 
     const user = {email, password, usertype:"Agent"}
     props.loginUser(user)
+  }
+  //Unable to complete loading functionality for when a user clicks on login button
+  const {loading} = props.errors;
+
+  let loginbar;
+  if (loading ) {
+    loginbar = <Loading />;
+  } else {
+    loginbar = <input type="submit" className="btn btn-info btn-block mt-4" />
   }
 
 
@@ -74,7 +83,7 @@ function Login(props) {
                 <p>Forget Password?</p>
             </div>
             <p className="login__left--note1">By logging in you agree to Newhomes's <span>Privacy Policy</span> and <span>Terms of Use</span></p>
-            <input type="submit" className="btn btn-info btn-block mt-4" />
+            {loginbar}
             <p className="login__left--note2">Not a member? <span>Join Now.</span></p>
           </form>
         </div>

@@ -19,9 +19,9 @@
     // }
   }
   //hide scroll bar after i fix click issue
-  // &__row::-webkit-scrollbar {
-  //   width: 0;
-  // }
+  &__row::-webkit-scrollbar {
+    width: 0;
+  }
 
   &__arrow {
     padding: 0.6rem;

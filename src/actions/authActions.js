@@ -2,11 +2,12 @@ import axios from "axios";
 import  setAuthToken  from "./../utils/setAuthToken";
 // import jwt_decode from "jwt-decode";
 
-import {  GET_ERRORS, SET_CURRENT_USER }  from "./types";
+import {  GET_ERRORS, SET_CURRENT_USER, SET_LOADING }  from "./types";
 
 
 //Login User
 export const loginUser = (userData) => dispatch => {
+ 
   axios
     .post("https://staging.newhomes.ng/api/auth/login", userData)
     .then(res => {
@@ -23,13 +24,21 @@ export const loginUser = (userData) => dispatch => {
         //set Current User
         dispatch(setCurrentUser(user));
     })
-    .catch(err => 
+    .catch(err => {
+      dispatch(setErrorLoading());
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       })
-      )
+    })
 }
+
+///Error loading
+export const setErrorLoading = () => {
+  return {
+    type: SET_LOADING,
+  };
+};
 
 //Set logged in user
 export const setCurrentUser = (user)=>{

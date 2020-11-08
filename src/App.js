@@ -49,9 +49,9 @@ function App() {
       <Router>
         <div className="App">
           <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/test" component={Test} />
           <Switch>
-                <PrivateRoute exact path="/test" component={Test} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>
         </div>
       </Router>
