@@ -21,7 +21,8 @@ function Login(props) {
   useEffect(()=>{
     if(props.errors){
       if(props.errors.message === "failed"){
-          setErrors(props.errors.data[0])
+          console.log(props.errors)
+          setErrors(props.errors)
       }else if(props.errors.message === "Validation Error"){
           props.errors.data.map(data => (
             setErrors(data)
@@ -49,7 +50,7 @@ function Login(props) {
               name="email"
               type="email" 
               placeholder="Email Address"
-              error={errors.email}  
+              error={errors.message === "failed" ? errors.data : errors.email }  
               value={email} 
               onChange={(e)=> setEmail(e.target.value)} 
             />
@@ -57,7 +58,7 @@ function Login(props) {
               name="password"
               type="password" 
               placeholder="Password"
-              error={errors.password}  
+              error={errors.message === "failed" ? errors.data : errors.password }  
               value={password} 
               onChange={(e)=> setPassword(e.target.value)} 
             />

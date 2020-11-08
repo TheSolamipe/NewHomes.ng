@@ -55,17 +55,16 @@ function Dashboard(props) {
     var sliderLimit = 750;
 
     $(".dashboard__arrow-b").on("click", function(){
-
+      
     var currentPosition = parseInt(view.css("left"));
     if (currentPosition >= sliderLimit) view.stop(false,true).animate({left:"-="+move},{ duration: 400})
 
     });
 
     $(".dashboard__arrow-f").on("click", function(){
-
+      
     var currentPosition = parseInt(view.css("left"));
     if (currentPosition < 0) view.stop(false,true).animate({left:"+="+move},{ duration: 400});
-
     });
 
 
