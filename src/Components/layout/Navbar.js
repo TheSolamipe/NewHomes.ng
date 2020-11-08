@@ -38,18 +38,18 @@ function Navbar(props) {
               </li>
             </ul>
             <ul className="navbar-nav ml-auto">
-                <li class="nav-item navbar-item dropdown">
-                  <Link class="navbar-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li className="nav-item navbar-item dropdown">
+                  <Link className="navbar-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Properties
                   </Link>
                 </li>
-                <li class="nav-item navbar-item dropdown">
-                  <Link class="navbar-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li className="nav-item navbar-item dropdown">
+                  <Link className="navbar-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Finance Plus
                   </Link>
                 </li>
-                <li class="nav-item navbar-item dropdown">
-                  <Link class="navbar-link dropdown-toggle" to="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li className="nav-item navbar-item dropdown">
+                  <Link className="navbar-link dropdown-toggle" to="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Overseas
                   </Link>
                 </li>   

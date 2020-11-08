@@ -39,7 +39,7 @@ function PropertyCard({title, address, src, price, bed, bath, finance, property,
                         </div> */}
                         <div className="form-group">
                             <div className="form-check card__check--title">
-                                <label className="form-check-label" for="gridCheck">
+                                <label className="form-check-label" htmlFor="gridCheck">
                                     Property title
                                 </label>
                                 <input className="form-check-input card__input" type="checkbox" id="gridCheck" disabled/>
@@ -47,7 +47,7 @@ function PropertyCard({title, address, src, price, bed, bath, finance, property,
                         </div>
                         <div className="form-group">
                             <div className="form-check card__check--title">
-                                <label className="form-check-label" for="gridCheck">
+                                <label className="form-check-label" htmlFor="gridCheck">
                                     Building Permit
                                 </label>
                                 <input className="form-check-input card__input" type="checkbox" id="gridCheck" checked/>

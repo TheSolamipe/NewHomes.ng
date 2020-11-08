@@ -1,25 +1,27 @@
 .dashboard {
   background-color: #f8f8f8;
-  position: relative;
+  // position: relative;
   &__header {
     padding-left: 4rem;
   }
   &__row {
-    position: absolute;
+    // position: absolute;
+    max-height: 400px;
     // width: 100vw;
     display: flex;
     margin: 0 30px;
     // padding: 20px;
     overflow-y: hidden;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     // @media screen and (max-width: 450px) {
     //   flex-direction: column;
     // }
   }
-  //   &__row::-webkit-scrollbar {
-  //     display: none;
-  //   }
+  //hide scroll bar after i fix click issue
+  // &__row::-webkit-scrollbar {
+  //   width: 0;
+  // }
 
   &__arrow {
     padding: 0.6rem;

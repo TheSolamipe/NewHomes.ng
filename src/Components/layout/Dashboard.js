@@ -10,7 +10,7 @@ import Loading from "./../common/Loading";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-// import $ from 'jquery';
+import $ from 'jquery';
 
 import "./../../sass/main.scss";
 
@@ -49,24 +49,24 @@ function Dashboard(props) {
     }
     
 
+    //jquery to handle scroll by click
+    var view = $(".dashboard__row");
+    var move = "100px";
+    var sliderLimit = 750;
 
-    // var view = $(".dashboard__row");
-    // var move = "100px";
-    // var sliderLimit = -750;
+    $(".dashboard__arrow-b").on("click", function(){
 
-    // $("dashboard__arrow-b").on("click", function(){
+    var currentPosition = parseInt(view.css("left"));
+    if (currentPosition >= sliderLimit) view.stop(false,true).animate({left:"-="+move},{ duration: 400})
 
-    // var currentPosition = parseInt(view.css("left"));
-    // if (currentPosition >= sliderLimit) view.stop(false,true).animate({left:"-="+move},{ duration: 400})
+    });
 
-    // });
+    $(".dashboard__arrow-f").on("click", function(){
 
-    // $("dashboard__arrow-f").on("click", function(){
+    var currentPosition = parseInt(view.css("left"));
+    if (currentPosition < 0) view.stop(false,true).animate({left:"+="+move},{ duration: 400});
 
-    // var currentPosition = parseInt(view.css("left"));
-    // if (currentPosition < 0) view.stop(false,true).animate({left:"+="+move},{ duration: 400});
-
-    // });
+    });
 
 
     return (
